@@ -1,0 +1,14 @@
+.containerHeader {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.containerInputSelect {
+    display: flex;
+    align-items: center;
+}
+
+.inputSelect {
+    height: 30px;
+}
