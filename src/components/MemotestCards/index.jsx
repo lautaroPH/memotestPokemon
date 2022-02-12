@@ -3,9 +3,7 @@ import MemotestCard from '../MemotestCard';
 import styles from './styles.module.css';
 
 const MemotestCards = () => {
-  const [records, setRecords] = useState(0);
-  const [pokemons1, setPokemons1] = useState([]);
-  const [pokemons2, setPokemons2] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
 
   const fetchDataPokemon = async () => {
     const offset = Math.floor(Math.random() * (1100 - 0 + 1) + 0);
@@ -15,11 +13,25 @@ const MemotestCards = () => {
         `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offset}`
       );
       const data = await response.json();
-      setPokemons1(data.results);
-      setPokemons2(data.results);
+      const pokemonsResults = shuffleArray([...data.results, ...data.results]);
+      setPokemons(
+        pokemonsResults.map((pokemon, i) => ({
+          index: i,
+          pokemon,
+          flipped: false,
+        }))
+      );
     } catch (error) {
       throw new Error(err);
     }
+  };
+
+  const shuffleArray = (a) => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   };
 
   useEffect(() => {
@@ -29,22 +41,13 @@ const MemotestCards = () => {
   return (
     <div className={styles.container}>
       <div className={styles.memotestContainer}>
-        {pokemons1.map((pokemon) => (
+        {pokemons.map((pokemon) => (
           <MemotestCard
-            key={pokemon.name}
-            records={records}
-            setRecords={setRecords}
-            name={pokemon.name}
-            url={pokemon.url}
-          />
-        ))}
-        {pokemons2.map((pokemon) => (
-          <MemotestCard
-            key={pokemon.name}
-            records={records}
-            setRecords={setRecords}
-            name={pokemon.name}
-            url={pokemon.url}
+            key={pokemon.index}
+            flipped={pokemon.flipped}
+            index={pokemon.index}
+            name={pokemon.pokemon.name}
+            url={pokemon.pokemon.url}
           />
         ))}
       </div>

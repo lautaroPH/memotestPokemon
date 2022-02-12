@@ -1,23 +1,10 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
-const MemotestCard = ({ records, setRecords, name, url }) => {
+const MemotestCard = ({ flipped, index, name, url }) => {
   const [turnedAround, setTurnedAround] = useState(false);
   const [pokemon, setPokemon] = useState([]);
-
-  const handlePieza = () => {
-    if (records < 2) {
-      setTurnedAround(true);
-      setRecords(records + 1);
-    }
-  };
-
-  if (records === 2 && turnedAround) {
-    setTimeout(() => {
-      setTurnedAround(false);
-      setRecords(0);
-    }, 1000);
-  }
+  const pokemonImage = pokemon?.sprites?.other?.home?.front_default;
 
   const fetchDataPokemon = async () => {
     try {
@@ -33,7 +20,9 @@ const MemotestCard = ({ records, setRecords, name, url }) => {
     fetchDataPokemon();
   }, []);
 
-  const pokemonImage = pokemon?.sprites?.other?.home?.front_default;
+  const handlePieza = () => {
+    setTurnedAround(true);
+  };
 
   return (
     <>
