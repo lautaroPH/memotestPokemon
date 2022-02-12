@@ -30,7 +30,6 @@
     border-radius: 100%;
     border: 6px double #eee;
     box-shadow: 0px 0px 5px 0px #eee inset;
-
 }
 
 .memotestBoxBorderRadiusSmall {
@@ -39,5 +38,20 @@
     border-radius: 100%;
     border: 6px double #eee;
     box-shadow: 0px 0px 5px 0px #eee inset;
+}
 
+.memotestBoxPokemon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    border: 6px double #eee;
+    box-shadow: 0px 0px 5px 0px #ccc inset;
+}
+
+.pokemonImage {
+    height: 100%;
+    width: 100%;
 }

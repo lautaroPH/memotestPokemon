@@ -46,7 +46,13 @@ const MemotestCard = ({ records, setRecords, name, url }) => {
           </div>
         </div>
       ) : (
-        <img src={pokemonImage} alt={pokemon.name} />
+        <div className={styles.memotestBoxPokemon}>
+          <img
+            className={styles.pokemonImage}
+            src={pokemonImage}
+            alt={pokemon.name}
+          />
+        </div>
       )}
     </>
   );
