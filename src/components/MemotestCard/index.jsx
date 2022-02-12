@@ -20,15 +20,17 @@ const MemotestCard = ({ flipped, index, name, url }) => {
   }, []);
 
   return (
-    <div className="memotestBox">
-      <div>
-        <div className="memotestBoxBorderRadiusBig">
-          <div className="memotestBoxBorderRadiusMediuem">
-            <div className="memotestBoxBorderRadiusSmall"></div>
+    <div className="memo-block">
+      <div className={`memo-block-inner ${flipped && `memo-block-flipped`}`}>
+        <div className="memo-block-front">
+          <div className="memotestBoxBorderRadiusBig">
+            <div className="memotestBoxBorderRadiusMediuem">
+              <div className="memotestBoxBorderRadiusSmall"></div>
+            </div>
           </div>
         </div>
-        <div className="memotestBoxPokemon">
-          <img className="pokemonImage" src={pokemonImage} alt={pokemon.name} />
+        <div className="memo-block-back">
+          <img className="pokemonImage" src={pokemonImage} alt={name} />
         </div>{' '}
       </div>
     </div>
