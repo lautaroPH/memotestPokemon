@@ -1,11 +1,7 @@
-.container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
-
 .memotestContainer {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+    grid-gap: 20px;
+    max-width: 1300px;
+    margin: 20px auto;
 }
