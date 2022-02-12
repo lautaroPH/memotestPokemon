@@ -1,12 +1,12 @@
-import styles from './styles.module.css';
+import './Header.css';
 
 const Header = () => {
   return (
-    <div className={styles.containerHeader}>
+    <div className="containerHeader">
       <h1>Memotest Pokemon</h1>
-      <div className={styles.containerInputSelect}>
+      <div className="containerInputSelect">
         <p>Dificultad:</p>
-        <select className={styles.inputSelect}>
+        <select className="inputSelect">
           <option>FACIL</option>
           <option>NORMAL</option>
           <option>DIFICIL</option>

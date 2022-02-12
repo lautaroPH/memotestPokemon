@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import MemotestCard from '../MemotestCard';
-import styles from './styles.module.css';
+import './MemotestCards.css';
 
 const MemotestCards = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -39,8 +39,8 @@ const MemotestCards = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.memotestContainer}>
+    <div className="container">
+      <div className="memotestContainer">
         {pokemons.map((pokemon) => (
           <MemotestCard
             key={pokemon.index}

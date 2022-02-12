@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import styles from './styles.module.css';
+import './MemotestCard.css';
 
 const MemotestCard = ({ flipped, index, name, url }) => {
-  const [turnedAround, setTurnedAround] = useState(false);
   const [pokemon, setPokemon] = useState([]);
   const pokemonImage = pokemon?.sprites?.other?.home?.front_default;
 
@@ -20,30 +19,19 @@ const MemotestCard = ({ flipped, index, name, url }) => {
     fetchDataPokemon();
   }, []);
 
-  const handlePieza = () => {
-    setTurnedAround(true);
-  };
-
   return (
-    <>
-      {!turnedAround ? (
-        <div className={styles.memotestBox} onClick={handlePieza}>
-          <div className={styles.memotestBoxBorderRadiusBig}>
-            <div className={styles.memotestBoxBorderRadiusMediuem}>
-              <div className={styles.memotestBoxBorderRadiusSmall}></div>
-            </div>
+    <div className="memotestBox">
+      <div>
+        <div className="memotestBoxBorderRadiusBig">
+          <div className="memotestBoxBorderRadiusMediuem">
+            <div className="memotestBoxBorderRadiusSmall"></div>
           </div>
         </div>
-      ) : (
-        <div className={styles.memotestBoxPokemon}>
-          <img
-            className={styles.pokemonImage}
-            src={pokemonImage}
-            alt={pokemon.name}
-          />
-        </div>
-      )}
-    </>
+        <div className="memotestBoxPokemon">
+          <img className="pokemonImage" src={pokemonImage} alt={pokemon.name} />
+        </div>{' '}
+      </div>
+    </div>
   );
 };
 
