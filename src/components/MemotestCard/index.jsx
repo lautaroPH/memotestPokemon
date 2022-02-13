@@ -10,7 +10,7 @@ const MemotestCard = ({ pokemon, animating, handleMemoClick }) => {
     fetchDataPokemon(pokemon.pokemon.url).then((data) => {
       setPokemonImg(data);
     });
-  }, []);
+  }, [pokemon]);
 
   return (
     <div
