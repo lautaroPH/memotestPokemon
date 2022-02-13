@@ -1,6 +1,7 @@
 .memo-block {
     cursor: pointer;
     aspect-ratio: 1 / 1;
+    user-select: none;
 }
 
 .memotestBoxBorderRadiusBig {
@@ -63,7 +64,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    pointer-events: none
 }
 
 .memo-block-front {
@@ -71,10 +72,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    pointer-events: none;
+    user-select: none;
 }
 
 .pokemonImage {
     width: 100%;
     height: 100%;
+    pointer-events: none;
+    user-select: none;
 }
