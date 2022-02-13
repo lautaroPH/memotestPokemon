@@ -60,6 +60,10 @@
 .memo-block-back {
     background-color: #fff;
     transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .memo-block-front {
@@ -68,10 +72,6 @@
     justify-content: center;
     align-items: center;
 
-}
-
-.memo-block:hover .memo-block-inner {
-    transform: rotateY(180deg);
 }
 
 .pokemonImage {
