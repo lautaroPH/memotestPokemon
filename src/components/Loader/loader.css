@@ -1,0 +1,21 @@
+.loader {
+    margin: auto;
+    width: 4rem;
+    height: 4rem;
+    border: 4px solid rgb(59 130 246);
+    border-radius: 100%;
+    border-left-color: transparent;
+    animation: spin 1s linear infinite;
+    text-align: center;
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
