@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const MemoBlockNumber = createContext(0);
+export const MemoBlockNumber = createContext(12);

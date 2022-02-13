@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { MemoBlockNumber } from '../../context/MemoBlockContext';
-import { fetchDataPokemons } from '../../helpers/FetchDataPokemons';
+import { fetchDataPokemonsPrueba } from '../../helpers/FetchDataPokemons';
 import Loader from '../Loader';
 import MemotestCard from '../MemotestCard';
 import './MemotestCards.css';
@@ -15,7 +15,7 @@ const MemotestCards = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetchDataPokemons(limit).then((data) => {
+    fetchDataPokemonsPrueba(limit).then((data) => {
       setPokemons(
         data.map((pokemon, i) => ({
           index: i,
