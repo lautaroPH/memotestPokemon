@@ -1,22 +1,15 @@
 import { useEffect, useState } from 'react';
+import { fetchDataPokemon } from '../../helpers/FetchDataPokemon';
 import './MemotestCard.css';
 
 const MemotestCard = ({ pokemon, animating, handleMemoClick }) => {
   const [pokemonImg, setPokemonImg] = useState([]);
   const pokemonImage = pokemonImg?.sprites?.other?.home?.front_default;
 
-  const fetchDataPokemon = async () => {
-    try {
-      const response = await fetch(`${pokemon.pokemon.url}`);
-      const data = await response.json();
-      setPokemonImg(data);
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
-
   useEffect(() => {
-    fetchDataPokemon();
+    fetchDataPokemon(pokemon.pokemon.url).then((data) => {
+      setPokemonImg(data);
+    });
   }, []);
 
   return (
