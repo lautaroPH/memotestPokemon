@@ -1,5 +1,5 @@
 export const VALUES_DIFFICULTY = {
-  EASY: 4, // === 8 FICHAS
-  MEDIUEM: 8, // === 16 FICHAS
-  HARD: 12, // === 24 FICHAS
+  EASY: 12, // === 24 FICHAS
+  MEDIUEM: 16, // === 32 FICHAS
+  HARD: 25, // === 50 FICHAS
 };

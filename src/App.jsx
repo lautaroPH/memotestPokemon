@@ -2,10 +2,11 @@ import { useState } from 'react';
 import Header from './components/Header';
 import MemotestCards from './components/MemotestCards';
 import { MemoBlockNumber } from './context/MemoBlockContext';
+import { VALUES_DIFFICULTY } from './helpers/ValuesDifficulty';
 
 function App() {
   const limitForMemoBlockInLocalStorage =
-    localStorage.getItem('memoBlock') || '12';
+    localStorage.getItem('memoBlock') || VALUES_DIFFICULTY.HARD;
 
   const [limit, setLimit] = useState(limitForMemoBlockInLocalStorage);
 
