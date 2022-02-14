@@ -1,7 +1,23 @@
 .memotestContainer {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     grid-gap: 20px;
-    max-width: 1300px;
-    margin: 20px auto;
+    max-width: 1650px;
+    margin: auto;
+}
+
+.memotestContainerMediuem {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr) !important;
+    grid-gap: 20px;
+    max-width: 1650px;
+    margin: auto;
+}
+
+.memotestContainerEasy {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) !important;
+    grid-gap: 20px;
+    max-width: 1240px;
+    margin: auto;
 }
