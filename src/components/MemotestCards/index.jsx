@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { MemoBlockNumber } from '../../context/MemoBlockContext';
-import { fetchDataPokemonsPrueba } from '../../helpers/FetchDataPokemons';
+import { fetchDataPokemons } from '../../helpers/FetchDataPokemons';
+import { VALUES_DIFFICULTY } from '../../helpers/ValuesDifficulty';
 import Loader from '../Loader';
 import MemotestCard from '../MemotestCard';
 import './MemotestCards.css';
@@ -15,7 +16,7 @@ const MemotestCards = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetchDataPokemonsPrueba(limit).then((data) => {
+    fetchDataPokemons(limit).then((data) => {
       setPokemons(
         data.map((pokemon, i) => ({
           index: i,
@@ -57,23 +58,31 @@ const MemotestCards = () => {
   };
 
   return (
-    <div className="container">
+    <>
       {loading ? (
         <Loader />
       ) : (
-        <div className="memotestContainer">
+        <div
+          className={`${
+            limit == VALUES_DIFFICULTY.EASY
+              ? 'memotestContainerEasy'
+              : limit == VALUES_DIFFICULTY.MEDIUEM
+              ? 'memotestContainerMediuem'
+              : 'memotestContainer'
+          }`}
+        >
           {pokemons.map((pokemon) => (
             <MemotestCard
               key={pokemon.index}
               pokemon={pokemon}
               animating={animating}
               handleMemoClick={handleMemoClick}
-              loading={loading}
+              limit={limit}
             />
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
