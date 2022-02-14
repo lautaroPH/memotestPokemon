@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { FailsContext } from '../../context/FailsContext';
 import { MemoBlockNumber } from '../../context/MemoBlockContext';
 import { fetchDataPokemons } from '../../helpers/FetchDataPokemons';
 import { VALUES_DIFFICULTY } from '../../helpers/ValuesDifficulty';
@@ -11,6 +12,8 @@ const MemotestCards = () => {
   const [selectedMemoBlock, setSelectedMemoBlock] = useState(null);
   const [animating, setAnimating] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const { setFails, fails } = useContext(FailsContext);
 
   const { limit } = useContext(MemoBlockNumber);
 
@@ -26,6 +29,7 @@ const MemotestCards = () => {
       );
       setLoading(false);
       setSelectedMemoBlock(null);
+      setFails(0);
     });
   }, [limit]);
 
@@ -53,6 +57,7 @@ const MemotestCards = () => {
         setPokemons(shuffledMemoBlocksCopy);
         setSelectedMemoBlock(null);
         setAnimating(false);
+        setFails(fails + 1);
       }, 1000);
     }
   };
