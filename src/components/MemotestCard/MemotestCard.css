@@ -1,5 +1,4 @@
 .memo-block {
-    cursor: pointer;
     aspect-ratio: 1 / 1;
     user-select: none;
 }
@@ -72,8 +71,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    pointer-events: none;
     user-select: none;
+    cursor: pointer;
 }
 
 .pokemonImage {
