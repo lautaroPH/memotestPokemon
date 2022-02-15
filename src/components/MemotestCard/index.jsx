@@ -1,13 +1,17 @@
 import './MemotestCard.css';
 
-const MemotestCard = ({ pokemon, animating, handleMemoClick }) => {
+const MemotestCard = ({ pokemon, animating, handleMemoClick, start }) => {
   const pokemonImage = pokemon?.pokemon?.sprites?.other?.home?.front_default;
 
+  const handleMemoClickStart = (pokemonClick) => {
+    if (!pokemon.flipped && !animating) {
+      handleMemoClick(pokemonClick);
+      start();
+    }
+  };
+
   return (
-    <div
-      className="memo-block"
-      onClick={() => !pokemon.flipped && !animating && handleMemoClick(pokemon)}
-    >
+    <div className="memo-block" onClick={() => handleMemoClickStart(pokemon)}>
       <div
         className={`memo-block-inner ${
           pokemon.flipped && `memo-block-flipped`

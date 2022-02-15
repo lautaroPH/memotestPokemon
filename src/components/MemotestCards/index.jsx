@@ -9,17 +9,25 @@ import './MemotestCards.css';
 
 const MemotestCards = () => {
   const [pokemons, setPokemons] = useState([]);
+
   const [selectedMemoBlock, setSelectedMemoBlock] = useState(null);
   const [animating, setAnimating] = useState(false);
+
   const [loading, setLoading] = useState(true);
+
+  const [finishedMemoTest, setfinishedMemoTest] = useState(0);
+
+  const [diff, setDiff] = useState(null);
+  const [initial, setInitial] = useState(null);
+  const [stop, setStop] = useState(false);
 
   const { setFails, fails } = useContext(FailsContext);
 
   const { limit } = useContext(MemoBlockNumber);
 
-  useEffect(() => {
+  const getPokemons = (limitPokemon) => {
     setLoading(true);
-    fetchDataPokemons(limit).then((data) => {
+    fetchDataPokemons(limitPokemon).then((data) => {
       setPokemons(
         data.map((pokemon, i) => ({
           index: i,
@@ -31,7 +39,7 @@ const MemotestCards = () => {
       setSelectedMemoBlock(null);
       setFails(0);
     });
-  }, [limit]);
+  };
 
   const handleMemoClick = (pokemonBlock) => {
     const flippedMemoBlock = { ...pokemonBlock, flipped: true };
@@ -45,6 +53,7 @@ const MemotestCards = () => {
       setSelectedMemoBlock(pokemonBlock);
     } else if (selectedMemoBlock.pokemon.name === pokemonBlock.pokemon.name) {
       setSelectedMemoBlock(null);
+      setfinishedMemoTest(finishedMemoTest + 1);
     } else {
       setAnimating(true);
       setTimeout(() => {
@@ -58,9 +67,41 @@ const MemotestCards = () => {
         setSelectedMemoBlock(null);
         setAnimating(false);
         setFails(fails + 1);
-      }, 1000);
+      }, 800);
     }
   };
+
+  const tick = () => {
+    setDiff(new Date(+new Date() - initial));
+  };
+
+  const start = () => {
+    if (initial === null) {
+      setInitial(+new Date());
+    }
+  };
+
+  useEffect(() => {
+    getPokemons(limit);
+  }, [limit]);
+
+  useEffect(() => {
+    if (finishedMemoTest == limit) {
+      setStop(true);
+    }
+  }, [finishedMemoTest, limit]);
+
+  useEffect(() => {
+    if (initial && !stop) {
+      requestAnimationFrame(tick);
+    }
+  }, [initial, stop]);
+
+  useEffect(() => {
+    if (diff && !stop) {
+      requestAnimationFrame(tick);
+    }
+  }, [diff, stop]);
 
   return (
     <>
@@ -83,6 +124,7 @@ const MemotestCards = () => {
               animating={animating}
               handleMemoClick={handleMemoClick}
               limit={limit}
+              start={start}
             />
           ))}
         </div>
