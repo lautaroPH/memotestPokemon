@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import MemotestCards from './components/MemotestCards';
-import { FailsContext } from './context/FailsContext';
 import { MemoBlockNumber } from './context/MemoBlockContext';
 import { VALUES_DIFFICULTY } from './helpers/ValuesDifficulty';
 

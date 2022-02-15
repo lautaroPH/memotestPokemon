@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { MemoBlockNumber } from '../../context/MemoBlockContext';
 import { fetchDataPokemons } from '../../helpers/FetchDataPokemons';
 import { VALUES_DIFFICULTY } from '../../helpers/ValuesDifficulty';
+import ButtonReset from '../ButtonReset';
 import Loader from '../Loader';
 import MemotestCard from '../MemotestCard';
 import './MemotestCards.css';
@@ -107,25 +108,28 @@ const MemotestCards = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div
-          className={`${
-            limit == VALUES_DIFFICULTY.EASY
-              ? 'memotestContainerEasy'
-              : limit == VALUES_DIFFICULTY.MEDIUEM
-              ? 'memotestContainerMediuem'
-              : 'memotestContainer'
-          }`}
-        >
-          {pokemons.map((pokemon) => (
-            <MemotestCard
-              key={pokemon.index}
-              pokemon={pokemon}
-              animating={animating}
-              handleMemoClick={handleMemoClick}
-              limit={limit}
-              start={start}
-            />
-          ))}
+        <div>
+          <div
+            className={`${
+              limit == VALUES_DIFFICULTY.EASY
+                ? 'memotestContainerEasy'
+                : limit == VALUES_DIFFICULTY.MEDIUEM
+                ? 'memotestContainerMediuem'
+                : 'memotestContainer'
+            }`}
+          >
+            {pokemons.map((pokemon) => (
+              <MemotestCard
+                key={pokemon.index}
+                pokemon={pokemon}
+                animating={animating}
+                handleMemoClick={handleMemoClick}
+                limit={limit}
+                start={start}
+              />
+            ))}
+          </div>
+          <ButtonReset limit={limit} fails={fails} getPokemons={getPokemons} />
         </div>
       )}
     </>

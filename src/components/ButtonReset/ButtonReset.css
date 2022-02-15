@@ -1,0 +1,45 @@
+.footerEasy {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1190px;
+    margin: auto;
+    margin-top: -2px;
+}
+
+.footerMediuem {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: auto;
+    margin-top: -4px;
+}
+
+.footerHard {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1550px;
+    margin: auto;
+    margin-top: -13px;
+}
+
+.buttonReset {
+    margin-right: -10px;
+    background-color: #1794F3;
+    padding: 7px;
+    border-radius: 5px;
+    border: solid 2px #1794F3;
+    color: #fff;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.buttonReset:hover {
+    background-color: #0b6ab3;
+    border: solid 2px #0b6ab3;
+}
