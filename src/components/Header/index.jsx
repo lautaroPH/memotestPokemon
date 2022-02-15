@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { FailsContext } from '../../context/FailsContext';
 import { MemoBlockNumber } from '../../context/MemoBlockContext';
 import { VALUES_DIFFICULTY } from '../../helpers/ValuesDifficulty';
 import './Header.css';
@@ -8,7 +7,6 @@ const Header = () => {
   const difficulty =
     localStorage.getItem('memoBlock') || VALUES_DIFFICULTY.HARD;
   const { setLimit } = useContext(MemoBlockNumber);
-  const { fails } = useContext(FailsContext);
 
   const handleChange = (e) => {
     let index = e.target.selectedIndex;
@@ -41,9 +39,6 @@ const Header = () => {
           </option>
         </select>
       </div>
-      <p>
-        Fallos: <span>{fails}</span>
-      </p>
     </div>
   );
 };

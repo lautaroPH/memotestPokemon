@@ -10,16 +10,13 @@ function App() {
     localStorage.getItem('memoBlock') || VALUES_DIFFICULTY.HARD;
 
   const [limit, setLimit] = useState(limitForMemoBlockInLocalStorage);
-  const [fails, setFails] = useState(0);
 
   return (
     <MemoBlockNumber.Provider value={{ limit, setLimit }}>
-      <FailsContext.Provider value={{ fails, setFails }}>
-        <div>
-          <Header />
-          <MemotestCards />
-        </div>
-      </FailsContext.Provider>
+      <div>
+        <Header />
+        <MemotestCards />
+      </div>
     </MemoBlockNumber.Provider>
   );
 }

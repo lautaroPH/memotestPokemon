@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import { FailsContext } from '../../context/FailsContext';
 import { MemoBlockNumber } from '../../context/MemoBlockContext';
 import { fetchDataPokemons } from '../../helpers/FetchDataPokemons';
 import { VALUES_DIFFICULTY } from '../../helpers/ValuesDifficulty';
@@ -21,7 +20,7 @@ const MemotestCards = () => {
   const [initial, setInitial] = useState(null);
   const [stop, setStop] = useState(false);
 
-  const { setFails, fails } = useContext(FailsContext);
+  const [fails, setFails] = useState(0);
 
   const { limit } = useContext(MemoBlockNumber);
 
