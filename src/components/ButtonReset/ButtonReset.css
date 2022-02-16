@@ -43,3 +43,55 @@
     background-color: #0b6ab3;
     border: solid 2px #0b6ab3;
 }
+
+@media (max-width: 1645px) {
+    .footerHard {
+        max-width: 1200px;
+    }
+
+    .footerMediuem {
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 1235px) {
+    .footerHard {
+        max-width: 900px;
+    }
+
+    .footerMediuem {
+        max-width: 900px;
+    }
+
+    .footerEasy {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 930px) {
+    .footerHard {
+        max-width: 600px;
+    }
+
+    .footerMediuem {
+        max-width: 610px;
+    }
+
+    .footerEasy {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 640px) {
+    .footerHard {
+        max-width: 330px;
+    }
+
+    .footerMediuem {
+        max-width: 330px;
+    }
+
+    .footerEasy {
+        max-width: 300px;
+    }
+}

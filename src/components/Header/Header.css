@@ -13,7 +13,7 @@
     border: 1px solid #d9d9d9;
     height: 27px;
     overflow: hidden;
-    width: 90px;
+    width: 105px;
     position: relative;
     margin-left: 5px;
 }
@@ -103,4 +103,10 @@
 
 .violet {
     color: violet;
+}
+
+@media (max-width: 500px) {
+    .containerHeader h1 {
+        font-size: 20px;
+    }
 }
