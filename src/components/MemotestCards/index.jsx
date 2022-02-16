@@ -5,6 +5,8 @@ import { VALUES_DIFFICULTY } from '../../helpers/ValuesDifficulty';
 import ButtonReset from '../ButtonReset';
 import Loader from '../Loader';
 import MemotestCard from '../MemotestCard';
+import Modal from '../Modal';
+import CanvasConfetti from 'https://cdn.skypack.dev/canvas-confetti';
 import './MemotestCards.css';
 
 const MemotestCards = () => {
@@ -23,10 +25,15 @@ const MemotestCards = () => {
 
   const [fails, setFails] = useState(0);
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   const { limit } = useContext(MemoBlockNumber);
+
+  const difficulty = localStorage.getItem('difficulty') || 'DIFICIL';
 
   const getPokemons = (limitPokemon) => {
     setLoading(true);
+    setStop(true);
     fetchDataPokemons(limitPokemon).then((data) => {
       setPokemons(
         data.map((pokemon, i) => ({
@@ -38,6 +45,9 @@ const MemotestCards = () => {
       setLoading(false);
       setSelectedMemoBlock(null);
       setFails(0);
+      setfinishedMemoTest(0);
+      setDiff(null);
+      setInitial(null);
     });
   };
 
@@ -71,6 +81,10 @@ const MemotestCards = () => {
     }
   };
 
+  useEffect(() => {
+    getPokemons(limit);
+  }, [limit]);
+
   const tick = () => {
     setDiff(new Date(+new Date() - initial));
   };
@@ -78,16 +92,20 @@ const MemotestCards = () => {
   const start = () => {
     if (initial === null) {
       setInitial(+new Date());
+      setStop(false);
     }
   };
 
   useEffect(() => {
-    getPokemons(limit);
-  }, [limit]);
-
-  useEffect(() => {
     if (finishedMemoTest == limit) {
       setStop(true);
+      setIsOpenModal(true);
+      setfinishedMemoTest(0);
+      CanvasConfetti({
+        particleCount: 1000,
+        startVelocity: 60,
+        spread: 360,
+      });
     }
   }, [finishedMemoTest, limit]);
 
@@ -130,6 +148,15 @@ const MemotestCards = () => {
             ))}
           </div>
           <ButtonReset limit={limit} fails={fails} getPokemons={getPokemons} />
+          <Modal
+            difficulty={difficulty}
+            fails={fails}
+            time={diff}
+            limit={limit}
+            getPokemons={getPokemons}
+            isOpenModal={isOpenModal}
+            setIsOpenModal={setIsOpenModal}
+          />
         </div>
       )}
     </>
