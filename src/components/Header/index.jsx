@@ -20,24 +20,43 @@ const Header = () => {
 
   return (
     <div className="containerHeader">
-      <h1>Memotest Pokemon</h1>
+      <h1>
+        <span className="red">M</span>
+        <span className="lime">e</span>
+        <span className="blue">m</span>
+        <span className="orange">o</span>
+        <span className="aquamarine">t</span>
+        <span className="blueviolet">e</span>
+        <span className="coral">s</span>
+        <span className="crimson">t</span>
+        <span> </span>
+        <span className="gold">P</span>
+        <span className="lawngreen">o</span>
+        <span className="mediumpurple">k</span>
+        <span className="orchid">e</span>
+        <span className="salmon">m</span>
+        <span className="tomato">o</span>
+        <span className="violet">n</span>
+      </h1>
       <div className="containerInputSelect">
         <p>Dificultad:</p>
-        <select
-          defaultValue={difficulty}
-          className="inputSelect"
-          onChange={handleChange}
-        >
-          <option label="FACIL" value={VALUES_DIFFICULTY.EASY}>
-            FACIL
-          </option>
-          <option label="NORMAL" value={VALUES_DIFFICULTY.MEDIUEM}>
-            NORMAL
-          </option>
-          <option label="DIFICIL" value={VALUES_DIFFICULTY.HARD}>
-            DIFICIL
-          </option>
-        </select>
+        <div className="caja">
+          <select
+            defaultValue={difficulty}
+            className="inputSelect"
+            onChange={handleChange}
+          >
+            <option label="FACIL" value={VALUES_DIFFICULTY.EASY}>
+              FACIL
+            </option>
+            <option label="NORMAL" value={VALUES_DIFFICULTY.MEDIUEM}>
+              NORMAL
+            </option>
+            <option label="DIFICIL" value={VALUES_DIFFICULTY.HARD}>
+              DIFICIL
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   );

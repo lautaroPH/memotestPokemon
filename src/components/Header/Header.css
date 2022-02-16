@@ -9,6 +9,98 @@
     align-items: center;
 }
 
+.caja {
+    border: 1px solid #d9d9d9;
+    height: 27px;
+    overflow: hidden;
+    width: 90px;
+    position: relative;
+    margin-left: 5px;
+}
+
 .inputSelect {
+    background: transparent;
+    border: none;
+    font-size: 14px;
     height: 30px;
+    padding: 5px;
+}
+
+.inputSelect:focus {
+    outline: none;
+}
+
+.caja::after {
+    content: "\025be";
+    display: table-cell;
+    padding-top: 2px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    pointer-events: none;
+}
+
+
+.red {
+    color: red;
+}
+
+.lime {
+    color: lime;
+}
+
+.blue {
+    color: blue;
+}
+
+.orange {
+    color: orange;
+}
+
+.aquamarine {
+    color: aquamarine;
+}
+
+.blueviolet {
+    color: blueviolet;
+}
+
+.coral {
+    color: coral;
+}
+
+.crimson {
+    color: crimson;
+}
+
+.gold {
+    color: gold;
+}
+
+.lawngreen {
+    color: lawngreen;
+}
+
+.mediumpurple {
+    color: mediumpurple;
+}
+
+.orchid {
+    color: orchid;
+}
+
+.salmon {
+    color: salmon;
+}
+
+.tomato {
+    color: tomato;
+}
+
+.violet {
+    color: violet;
 }
